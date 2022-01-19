@@ -1,0 +1,10 @@
+{
+  "name": "SimpleCloud-Stats-Module",
+  "author": "Chaoten",
+  "mainClass": "net.neverstopgaming.stats.StatsModule",
+  "moduleCopyType": "NONE",
+  "repositories": [],
+  "dependencies": [],
+  "depend": [],
+  "softDepend": []
+}

@@ -40,13 +40,38 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     compileOnly(getDependency("simplecloud", "plugin"))
-    compileOnly(getDependency("nsg", "api"))
-    compileOnly(getDependency("nsg", "core"))
+    compileOnly(getDependency("google", "gson"))
+    compileOnly(getDependency("simplecloud", "launcher"))
     compileOnly(getDependency("components", "minimessage"))
+    implementation(getDependency("database", "influxdb"))
 }
 
 tasks.test {
     useJUnit()
+}
+
+tasks {
+
+    shadowJar {
+
+        archiveFileName.set("${project.name}-${Properties.version}-full.jar")
+        exclude("META-INF/**")
+
+        doFirst {
+            //Set Manifest
+            manifest {
+                attributes["Implementation-Title"] = project.name
+                attributes["Implementation-Version"] = Properties.version
+                attributes["Specification-Version"] = Properties.version
+                attributes["Implementation-Vendor"] = "NeverStopGaming.net"
+                attributes["Built-By"] = System.getProperty("user.name")
+                attributes["Build-Jdk"] = System.getProperty("java.version")
+                attributes["Created-By"] = "Gradle ${gradle.gradleVersion}"
+                attributes["Commit-Hash"] = getCommitHash()
+                attributes["Launcher-Agent-Class"] = "eu.vironlab.vextension.dependency.DependencyAgent"
+            }
+        }
+    }
 }
 
 tasks.withType<KotlinCompile>() {

@@ -38,7 +38,7 @@ object Properties {
     val group = "net.neverstopgaming"
 
     @JvmStatic
-    val version = "1.0.0-SNAPSHOT"
+    val version = "1.0.0"
 
     @JvmStatic
     val versions: MutableMap<String, String> = mutableMapOf<String, String>().also {
@@ -71,7 +71,8 @@ object Properties {
             )
             it["database"] = mutableMapOf(
                 "mongo" to "org.mongodb:mongodb-driver-sync:4.3.0",
-                "redis" to "io.lettuce:lettuce-core:6.1.0.RELEASE"
+                "redis" to "io.lettuce:lettuce-core:6.1.0.RELEASE",
+                "influxdb" to "com.influxdb:influxdb-client-kotlin:3.1.0"
             )
             it["minecraft"] = mutableMapOf(
                 "bukkit" to "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT",

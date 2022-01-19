@@ -1,4 +1,4 @@
-rootProject.name = "Template"
+rootProject.name = "SimpleCloud-stats-module"
 
 //Repositorys for Plugins
 pluginManagement {
